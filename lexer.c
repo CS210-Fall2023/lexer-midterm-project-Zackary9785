@@ -21,8 +21,8 @@ int isKeyword(char buffer[])
 
 int isOperator(char buffer[])
 {
-    char operators[27][10] = {".", "<", ">", "(", ")", "+", "-", "*", "/", "|", "&", ";", ",", ":",
-    "[",   "]",  "=",   ":=",   "..",   "<<",   ">>",   "<>",   "<=",   ">=",   "**",   "!=",   "=>"};
+    char operators[27][3]= {".", "<", ">", "(", ")", "+", "-", "*", "/", "|", "&", ";", ",", ":",
+    "[", "]", "=", ":=", "..", "<<", ">>", "<>", "<=", ">=", "**", "!=", "=>"};
     int i, flag = 0;
 
     for(i = 0; i < 27; ++i)
@@ -34,4 +34,42 @@ int isOperator(char buffer[])
         }
     }
     return flag;
+}
+
+int isDigit(char buffer[])
+{
+    char operators[10][2]= {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    int i, flag = 0;
+
+    for(i = 0; i < 10; ++i)
+    {
+        if(strcmp(operators[i], buffer) == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    return flag;
+}
+
+int isString(char buffer[])
+{
+    for(int i=0; i<256; i++)
+    {
+        if(buffer[i] == '"')
+        {
+            return 1;
+        }
+    }
+}
+
+int isComment(char buffer[])
+{
+    for(int i=0; i<256; i++)
+    {
+        if(buffer[i] == '"')
+        {
+            return 1;
+        }
+    }
 }

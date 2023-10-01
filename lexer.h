@@ -8,5 +8,8 @@
 
 int isKeyword(char buffer[]);
 int isOperator(char buffer[]);
+int isDigit(char buffer[]);
+int isString(char buffer[]);
+int isComment(char buffer[]);
 
 #endif

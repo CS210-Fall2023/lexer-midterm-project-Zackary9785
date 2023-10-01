@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     char ch, buffer[256];
     FILE *fp;
     int i,j=0;
-    fp = fopen("test.txt","r");
+    fp = fopen(argv[1],"r");
 
     if(fp == NULL)
     {
@@ -19,13 +19,11 @@ int main(int argc, char *argv[])
     }
     while((ch = fgetc(fp)) != EOF)
     {
-        // for(i = 0; i < 6; ++i)
-        // {
-        //     if(ch == operators[i])
-        //     printf("%c is operator\n", ch);
-        // }
-    
-        if(isalnum(ch))
+
+        if(isalnum(ch) || ch == '.' || ch == '<' || ch == '>' || ch == '(' || ch == ')' || ch == '+' || ch == '-'
+           || ch == '*' || ch == '/' || ch == '|' || ch == '&' || ch == ';' || ch == ',' || ch == ':' || ch == '['
+           || ch == ']' || ch == '=' || ch == ":=" || ch == ".." || ch == "<<" || ch == ">>" || ch == "<>" || ch == "<="
+           || ch == ">=" || ch == "**" || ch == "!=" || ch == "=>")
         {
             buffer[j++] = ch;
         }
@@ -40,6 +38,25 @@ int main(int argc, char *argv[])
             }
             if(isKeyword(buffer) == 1)
                 printf("%s is keyword\n", buffer);
+            if(isDigit(buffer)==1)
+                printf("%s is digit\n", buffer);
+            // if(isString(buffer)==1)
+            // {
+            //     while((buffer[j]) != '"')
+            //     {
+            //         printf("%s", buffer[j]);
+            //     }
+            //     printf("%s is string\n", buffer);
+            // }
+            // if(isComment(buffer)==1)
+            // {
+            //     while((buffer[j]) != '*/')
+            //     {
+            //         printf("%s", buffer[j]);
+            //     }
+            //     printf("%s is comment\n", buffer);
+            // }
+                
             // else
             //     printf("%s is indentifier\n", buffer);
         }
