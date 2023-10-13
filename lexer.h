@@ -1,15 +1,12 @@
 #ifndef LEXER_H
 #define LEXER_H
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <errno.h>
 
-int isKeyword(char buffer[]);
-int isOperator(char buffer[]);
-int isDigit(char buffer[]);
-int isString(char buffer[]);
-int isComment(char buffer[]);
+int iskeyword (char[]);
+int isoperator (char[]);
 
 #endif
